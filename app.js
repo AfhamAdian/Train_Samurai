@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
+const db = require ('./db');
 
 const app = express();
 app.set("view engine","ejs");
@@ -21,6 +22,10 @@ app.listen(PORT, ()=> console.log('server started to listening at port 8000'));
 //   res.status(200).json(req.body);
 // })
 
+// Router for API/Users
+app.use('/api/users','./routes/usersRouter');
+
+ap
 
 
 // // Router and Page
@@ -50,3 +55,9 @@ app.listen(PORT, ()=> console.log('server started to listening at port 8000'));
 
 
 // now we will 
+
+
+
+// get station 
+
+
