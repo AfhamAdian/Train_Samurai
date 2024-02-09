@@ -17,15 +17,29 @@ app.listen(PORT, ()=> console.log('server started to listening at port 8000'));
 
 
 // initializing the DataBase Pool
-// app.post("/api/stations",async (req,res)=>{
-  
-//   res.status(200).json(req.body);
-// })
+app.post("/api/stations",async (req,res)=>{
+  const {station_id,station_name,longtitude,latitude}=req.body;
+  await db.query("Insert into station(station_id,station_name,longtitude,latitude) values (station_id,station_name,longtitude,latitude");
+  res.status(200).json({
+    station_id,
+    station_name,
+    longtitude,
+    latitude
+  });
+})
+
+app.get("/api/stations/:station_id/trains",async (req,res)=>{
+  const result=await db.query("SELECT s.station_id, t.train_id,ts.arrival_time,ts.departure_time FROM station s JOIN train_stop ts ON s.station_id = ts.station_id JOIN train t ON ts.train_id = t.train_id WHER s.station_id = $1 ORDER BY  COALESCE(ts.departure_time, '23:59:59') NULLS FIRST,  COALESCE(ts.arrival_time, '23:59:59') NULLS FIRST,  t.train_id;",[req.params.id]).rows;
+  res.status(200).json({
+    station_id:req.params.id,
+    trains:result
+
+  })
+})
 
 // Router for API/Users
 app.use('/api/users','./routes/usersRouter');
 
-ap
 
 
 // // Router and Page
