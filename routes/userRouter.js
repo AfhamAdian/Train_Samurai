@@ -1,5 +1,6 @@
 const express = require('express');
 const express = require('express');
+const db = require('../db');
 
 
 
@@ -11,12 +12,17 @@ usersRouter
     .post( postUser )
 
 
-function postUser(req, res) {
+async function postUser(req, res) 
+{
     const { user_id, user_name, balance } = req.body;
-    // Insert the data into the PostgreSQL database
     
-    res.json ({ user_id, user_name, balance });
+    const query = `INSERT INTO users (user_id, user_name, balance) VALUES (${user_id}, '${user_name}', ${balance})`;
+    const result = await db.query(query);
+    console.log( user_id + " " + user_name + " " + balance + " " + "inserted into the database");    
+    res.json({ user_id, user_name, balance });
 }
+
+
 
 module.exports = usersRouter;
 
