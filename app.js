@@ -22,27 +22,6 @@ app.listen(PORT, ()=> console.log('server started to listening at port 8000'));
 // Router for API/Users
 app.use('/api/users','./routes/usersRouter');
 
-ap
-
-
-// // Router and Page
-// const mainHomeRouter = require('./routes/mainHomeRouter.js');
-// app.use('/', mainHomeRouter );
-
-// const homeRouter = require('./routes/homeRouter.js');
-// app.use('/test',homeRouter);
-
-// const departmentRouter = require('./routes/deptRouter.js');
-// app.use('/dept',departmentRouter);
-
-// const employeeRouter = require('./routes/empRouter.js');
-// app.use('/emp',employeeRouter);
-
-// app.use('/login', require('./routes/logInRouter.js'));
-// // app.use('/signup', require('./routes/signUpRouter.js'));
-// app.use('/logout', require('./routes/logOutRouter.js'));
-
-
 
 /// 404 Page Ridercting 
 // app.use((req, res) => {
