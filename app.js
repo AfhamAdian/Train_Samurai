@@ -41,24 +41,7 @@ app.get("/api/stations/:station_id/trains",async (req,res)=>{
 app.use('/api/users','./routes/usersRouter');
 
 
-
-// // Router and Page
-// const mainHomeRouter = require('./routes/mainHomeRouter.js');
-// app.use('/', mainHomeRouter );
-
-// const homeRouter = require('./routes/homeRouter.js');
-// app.use('/test',homeRouter);
-
-// const departmentRouter = require('./routes/deptRouter.js');
-// app.use('/dept',departmentRouter);
-
-// const employeeRouter = require('./routes/empRouter.js');
-// app.use('/emp',employeeRouter);
-
-// app.use('/login', require('./routes/logInRouter.js'));
-// // app.use('/signup', require('./routes/signUpRouter.js'));
-// app.use('/logout', require('./routes/logOutRouter.js'));
-
+app.use('/api/stations','./routes/usersRouter');
 
 
 /// 404 Page Ridercting 
@@ -74,4 +57,10 @@ app.use('/api/users','./routes/usersRouter');
 
 // get station 
 
+const getStationRouter = require('./routes/getStation');
+app.use ('/api/stations',getStationRouter);
+
+
+const getWalletRouter = require ('./routes/getWallet');
+app.use ('/api/wallets/:id',getWalletRouter);
 
