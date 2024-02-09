@@ -37,4 +37,10 @@ app.use('/api/stations','./routes/usersRouter');
 
 // get station 
 
+const getStationRouter = require('./routes/getStation');
+app.use ('/api/stations',getStationRouter);
+
+
+const getWalletRouter = require ('./routes/getWallet');
+app.use ('/api/wallets/:id',getWalletRouter);
 
