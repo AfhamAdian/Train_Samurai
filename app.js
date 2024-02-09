@@ -19,6 +19,10 @@ app.listen(PORT, ()=> console.log('server started to listening at port 8000'));
 // initializing the DataBase Pool
 
 
+// Router for API/Users
+app.use('/api/users','./routes/usersRouter');
+
+ap
 
 
 // // Router and Page
