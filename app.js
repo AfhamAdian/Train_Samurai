@@ -1,7 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
-const usersRouter = require('./routes/usersRouter.js');
+const db = require ('./db');
 
 const app = express();
 app.set("view engine","ejs");
