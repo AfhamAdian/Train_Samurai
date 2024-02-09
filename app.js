@@ -22,6 +22,7 @@ app.listen(PORT, ()=> console.log('server started to listening at port 8000'));
 // Router for API/Users
 app.use('/api/users','./routes/usersRouter');
 
+app.use('/api/stations','./routes/usersRouter');
 
 /// 404 Page Ridercting 
 // app.use((req, res) => {
