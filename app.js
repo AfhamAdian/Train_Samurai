@@ -16,7 +16,10 @@ app.listen(PORT, ()=> console.log('server started to listening at port 8000'));
 
 
 // initializing the DataBase Pool
-
+// app.post("/api/stations",async (req,res)=>{
+  
+//   res.status(200).json(req.body);
+// })
 
 
 
